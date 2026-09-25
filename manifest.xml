@@ -7,7 +7,7 @@
     xsi:type="MailApp">
 
     <Id>9f6d3f4e-1d41-4f6b-b4b2-7a7b3d47e2c1</Id>
-    <Version>1.1.0.0</Version>
+    <Version>1.1.1.0</Version>
 
     <ProviderName>ROVECO</ProviderName>
     <DefaultLocale>it-IT</DefaultLocale>
@@ -16,10 +16,10 @@
     <Description DefaultValue="Verifica il mittente prima dell’invio e ricorda di usare la casella Customer Service."/>
 
     <IconUrl
-        DefaultValue="https://andreagx.github.io/outlook-addin-test-ms/icon-64.png"/>
+        DefaultValue="https://andreagx.github.io/roveco-controllo-mittente/icon-64.png"/>
 
     <HighResolutionIconUrl
-        DefaultValue="https://andreagx.github.io/outlook-addin-test-ms/icon-128.png"/>
+        DefaultValue="https://andreagx.github.io/roveco-controllo-mittente/icon-128.png"/>
 
     <SupportUrl
         DefaultValue="https://rovecogroup.com/"/>
@@ -43,7 +43,7 @@
         <Form xsi:type="ItemRead">
             <DesktopSettings>
                 <SourceLocation
-                    DefaultValue="https://andreagx.github.io/outlook-addin-test-ms/commands.html"/>
+                    DefaultValue="https://andreagx.github.io/roveco-controllo-mittente/commands.html"/>
                 <RequestedHeight>250</RequestedHeight>
             </DesktopSettings>
         </Form>
@@ -51,7 +51,7 @@
         <Form xsi:type="ItemEdit">
             <DesktopSettings>
                 <SourceLocation
-                    DefaultValue="https://andreagx.github.io/outlook-addin-test-ms/commands.html"/>
+                    DefaultValue="https://andreagx.github.io/roveco-controllo-mittente/commands.html"/>
             </DesktopSettings>
         </Form>
 
@@ -128,15 +128,15 @@
 
                     <bt:Url
                         id="Commands.Url"
-                        DefaultValue="https://andreagx.github.io/outlook-addin-test-ms/commands.html"/>
+                        DefaultValue="https://andreagx.github.io/roveco-controllo-mittente/commands.html"/>
 
                     <bt:Url
                         id="WebViewRuntime.Url"
-                        DefaultValue="https://andreagx.github.io/outlook-addin-test-ms/commands.html"/>
+                        DefaultValue="https://andreagx.github.io/roveco-controllo-mittente/commands.html"/>
 
                     <bt:Url
                         id="JSRuntime.Url"
-                        DefaultValue="https://andreagx.github.io/outlook-addin-test-ms/launchevent.js"/>
+                        DefaultValue="https://andreagx.github.io/roveco-controllo-mittente/launchevent.js"/>
 
                 </bt:Urls>
 
