@@ -17,7 +17,7 @@ function onMessageSendHandler(event) {
         finish({
             allowEvent: false,
             errorMessage: "Impossibile verificare il mittente. Controlla il campo Da: per Customer Service usa " +
-                CUSTOMER_SERVICE_ADDRESS + ". Puoi scegliere Invia comunque se il mittente e corretto."
+                CUSTOMER_SERVICE_ADDRESS + ". Puoi scegliere Invia comunque se il mittente è corretto."
         });
     }
     timer = setTimeout(unableToVerify, 3000);
@@ -41,9 +41,9 @@ function onMessageSendHandler(event) {
                 } else if (sender === personalAddress) {
                     finish({
                         allowEvent: false,
-                        errorMessage: "Stai inviando dalla tua casella personale (" + sender +
-                            "). Per Customer Service usa " + CUSTOMER_SERVICE_ADDRESS +
-                            ". Scegli Non inviare per cambiare il campo Da, oppure Invia comunque per confermare."
+                        errorMessage: "Stai inviando da " + sender +
+                            ". Per Customer Service usa " + CUSTOMER_SERVICE_ADDRESS +
+                            ". Scegli Non inviare per cambiare mittente o Invia comunque per confermare."
                     });
                 } else {
                     finish({ allowEvent: true });
