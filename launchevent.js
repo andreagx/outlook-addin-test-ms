@@ -1,11 +1,60 @@
-function onMessageSendHandler(event) {
-    event.completed({
-        allowEvent: false,
-        errorMessage: "ROVECO TEST-MS OK"
-    });
+var CUSTOMER_SERVICE_ADDRESS = "customerservice@rovecogroup.com";
+
+function normalizeAddress(value) {
+    return typeof value === "string" ? value.trim().toLowerCase() : "";
 }
 
-Office.actions.associate(
-    "onMessageSendHandler",
-    onMessageSendHandler
-);
+function onMessageSendHandler(event) {
+    var completed = false;
+    var timer;
+    function finish(options) {
+        if (completed) return;
+        completed = true;
+        if (timer) clearTimeout(timer);
+        event.completed(options);
+    }
+    function unableToVerify() {
+        finish({
+            allowEvent: false,
+            errorMessage: "Impossibile verificare il mittente. Controlla il campo Da: per Customer Service usa " +
+                CUSTOMER_SERVICE_ADDRESS + ". Puoi scegliere Invia comunque se il mittente e corretto."
+        });
+    }
+    timer = setTimeout(unableToVerify, 3000);
+    try {
+        var mailbox = Office.context.mailbox;
+        var personalAddress = normalizeAddress(mailbox.userProfile.emailAddress);
+        mailbox.item.from.getAsync(function (result) {
+            if (completed) return;
+            try {
+                if (result.status !== Office.AsyncResultStatus.Succeeded) {
+                    unableToVerify();
+                    return;
+                }
+                var sender = normalizeAddress(result.value && result.value.emailAddress);
+                if (!sender) {
+                    unableToVerify();
+                } else if (sender === CUSTOMER_SERVICE_ADDRESS) {
+                    finish({ allowEvent: true });
+                } else if (!personalAddress) {
+                    unableToVerify();
+                } else if (sender === personalAddress) {
+                    finish({
+                        allowEvent: false,
+                        errorMessage: "Stai inviando dalla tua casella personale (" + sender +
+                            "). Per Customer Service usa " + CUSTOMER_SERVICE_ADDRESS +
+                            ". Scegli Non inviare per cambiare il campo Da, oppure Invia comunque per confermare."
+                    });
+                } else {
+                    finish({ allowEvent: true });
+                }
+            } catch (error) {
+                unableToVerify();
+            }
+        });
+    } catch (error) {
+        unableToVerify();
+    }
+}
+
+Office.actions.associate("onMessageSendHandler", onMessageSendHandler);
