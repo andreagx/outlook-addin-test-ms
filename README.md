@@ -1,6 +1,6 @@
 # ROVECO – Controllo mittente
 
-Versione 1.1.0.0. Componente aggiuntivo Outlook OnMessageSend, ospitato su GitHub Pages.
+Versione 1.1.1.0. Componente aggiuntivo Outlook OnMessageSend, ospitato su GitHub Pages.
 
 ## Comportamento
 
@@ -10,11 +10,11 @@ Versione 1.1.0.0. Componente aggiuntivo Outlook OnMessageSend, ospitato su GitHu
 
 ## Distribuzione
 
-[Pagina di installazione](https://andreagx.github.io/outlook-addin-test-ms/)
+[Pagina di installazione](https://andreagx.github.io/roveco-controllo-mittente/)
 
-[Manifest](https://andreagx.github.io/outlook-addin-test-ms/manifest-test-ms.xml)
+[Manifest](https://andreagx.github.io/roveco-controllo-mittente/manifest.xml)
 
-Aggiornare l’app esistente nelle App integrate di Microsoft 365 con il manifest. Identificativo invariato: `9f6d3f4e-1d41-4f6b-b4b2-7a7b3d47e2c1`. Gli URL e il nome tecnico del file sono conservati per compatibilità.
+Aggiornare l’app esistente nelle App integrate di Microsoft 365 con il manifest. Identificativo invariato: `9f6d3f4e-1d41-4f6b-b4b2-7a7b3d47e2c1`. Il manifest 1.1.1.0 usa il nuovo indirizzo GitHub Pages: aggiornare le installazioni esistenti con questo file.
 
 Per l’uso definitivo mantenere la distribuzione centralizzata; rimuovere la copia manuale di prova solo dopo aver verificato il funzionamento di quella centralizzata. Non creare un nuovo identificativo o ampliare gli utenti assegnati durante l’aggiornamento.
 
